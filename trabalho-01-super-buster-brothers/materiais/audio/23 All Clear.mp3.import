@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dhdfqxppwp1wh"
+path="res://.godot/imported/23 All Clear.mp3-0cfc8b3b713aed223689490d250d2402.mp3str"
+
+[deps]
+
+source_file="res://materiais/audio/23 All Clear.mp3"
+dest_files=["res://.godot/imported/23 All Clear.mp3-0cfc8b3b713aed223689490d250d2402.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

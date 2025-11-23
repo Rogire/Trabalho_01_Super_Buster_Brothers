@@ -1,6 +1,5 @@
 extends Area2D
-
-const JUMP_VELOCITY = -1000.0
+const pulo = -1000.0
 
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 @export var gravidade : float
@@ -31,7 +30,7 @@ func _physics_process(delta: float) -> void:
 	position.y += velocity.y*delta
 	
 	if(Input.is_action_just_pressed("pular") && ac>(0.016*60)):
-		velocity.y += JUMP_VELOCITY
+		velocity.y += pulo
 		ac = 0.0
 
 	if(position.y>chao):
@@ -39,11 +38,3 @@ func _physics_process(delta: float) -> void:
 		velocity.y = 0
 
 	ac += delta
-	
-func _on_area_2d_area_entered(_area: Area2D) -> void:
-	vida -= 1
-	print("aiai")
-
-
-func _on_area_entered(_area: Area2D) -> void:
-	pass # Replace with function body.

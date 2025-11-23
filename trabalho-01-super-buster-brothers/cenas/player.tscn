@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://b635cm5hpttpy"]
+[gd_scene load_steps=5 format=3 uid="uid://b635cm5hpttpy"]
 
 [ext_resource type="Script" uid="uid://bfh0f0rveqquo" path="res://scripts/player.gd" id="1_8or6t"]
 [ext_resource type="Texture2D" uid="uid://buvji1p47abmu" path="res://materiais/player.png" id="2_unwft"]
+[ext_resource type="AudioStream" uid="uid://cj7ij0oa47gb7" path="res://materiais/audio/punch-140236.mp3" id="3_kthid"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_unwft"]
 size = Vector2(34, 52)
@@ -22,5 +23,8 @@ texture = ExtResource("2_unwft")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(2, -16)
 shape = SubResource("RectangleShape2D_unwft")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_kthid")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]

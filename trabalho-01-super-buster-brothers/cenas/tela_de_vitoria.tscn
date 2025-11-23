@@ -1,16 +1,11 @@
 [gd_scene load_steps=5 format=3 uid="uid://cn5ily51kf18a"]
 
 [ext_resource type="Script" uid="uid://dhbpddohq3y5n" path="res://tela_de_vitoria.gd" id="1_ve84t"]
+[ext_resource type="FontFile" uid="uid://b4b0qahpaps63" path="res://materiais/fonts/HomeVideo-BLG6G.ttf" id="2_3lfvo"]
+[ext_resource type="AudioStream" uid="uid://dhdfqxppwp1wh" path="res://materiais/audio/23 All Clear.mp3" id="3_yedp4"]
 
-[sub_resource type="Gradient" id="Gradient_3lfvo"]
-offsets = PackedFloat32Array(0, 0.31355932, 1)
-colors = PackedColorArray(0, 0, 0, 1, 0.22033899, 0.22033899, 0.22033899, 1, 1, 1, 1, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_bjrca"]
-gradient = SubResource("Gradient_3lfvo")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yedp4"]
-texture = SubResource("GradientTexture2D_bjrca")
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yedp4"]
+bg_color = Color(0.5461692, 0.5692233, 0.8471973, 1)
 
 [node name="tela_de_vitoria" type="Control"]
 layout_mode = 3
@@ -25,31 +20,43 @@ script = ExtResource("1_ve84t")
 layout_mode = 0
 offset_right = 1150.0
 offset_bottom = 649.0
-theme_override_styles/panel = SubResource("StyleBoxTexture_yedp4")
+theme_override_styles/panel = SubResource("StyleBoxFlat_yedp4")
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 0
-offset_left = 492.0
-offset_top = 268.0
-offset_right = 644.0
-offset_bottom = 299.0
+offset_left = 331.0
+offset_top = 290.0
+offset_right = 522.0
+offset_bottom = 352.0
+theme_override_fonts/font = ExtResource("2_3lfvo")
+theme_override_font_sizes/font_size = 25
 text = "Jogar novamente"
 
 [node name="Button2" type="Button" parent="."]
 layout_mode = 0
-offset_left = 544.0
-offset_top = 363.0
-offset_right = 582.0
-offset_bottom = 394.0
+offset_left = 659.0
+offset_top = 287.0
+offset_right = 774.0
+offset_bottom = 349.0
+theme_override_fonts/font = ExtResource("2_3lfvo")
+theme_override_font_sizes/font_size = 25
 text = "Sair"
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
-offset_left = 533.0
-offset_top = 207.0
-offset_right = 598.0
-offset_bottom = 230.0
+offset_left = 286.0
+offset_top = 114.0
+offset_right = 886.0
+offset_bottom = 204.0
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_fonts/font = ExtResource("2_3lfvo")
+theme_override_font_sizes/font_size = 100
 text = "Vitória!!!"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_yedp4")
+autoplay = true
+parameters/looping = true
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]

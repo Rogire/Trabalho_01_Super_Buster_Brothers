@@ -1,14 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://chsob2818y2rw"]
+[gd_scene load_steps=5 format=3 uid="uid://chsob2818y2rw"]
 
 [ext_resource type="Script" uid="uid://m58np68h2rm3" path="res://scripts/ataque_player.gd" id="1_pu6vu"]
 [ext_resource type="Texture2D" uid="uid://de2gu8qmuaefk" path="res://materiais/tiro.png" id="2_7ddr1"]
+[ext_resource type="AudioStream" uid="uid://1r8r1im7yrla" path="res://materiais/audio/pow-90398.mp3" id="3_1wrkx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3q6ib"]
 size = Vector2(20, 236)
 
 [node name="ataque_player" type="Area2D"]
 collision_layer = 128
-collision_mask = 136
+collision_mask = 8
 script = ExtResource("1_pu6vu")
 VELOCITY = -1300.0
 
@@ -20,5 +21,8 @@ texture = ExtResource("2_7ddr1")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(3, 85)
 shape = SubResource("RectangleShape2D_3q6ib")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_1wrkx")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]

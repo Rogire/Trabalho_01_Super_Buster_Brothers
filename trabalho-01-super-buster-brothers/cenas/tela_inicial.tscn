@@ -1,7 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://cbfn16ni6ir1h"]
+[gd_scene load_steps=8 format=3 uid="uid://cbfn16ni6ir1h"]
 
 [ext_resource type="Script" uid="uid://b82621h68wb7j" path="res://scripts/tela_inicial.gd" id="1_24di4"]
 [ext_resource type="Texture2D" uid="uid://dsgmuh0rfls6" path="res://materiais/capa.jpg" id="2_ox3ib"]
+[ext_resource type="FontFile" uid="uid://b4b0qahpaps63" path="res://materiais/fonts/HomeVideo-BLG6G.ttf" id="3_b8b2x"]
+[ext_resource type="AudioStream" uid="uid://bl0hlhu32i2sx" path="res://materiais/audio/02 Select Game (mp3cut.net).mp3" id="3_ox3ib"]
 
 [sub_resource type="Theme" id="Theme_b8b2x"]
 
@@ -31,13 +33,29 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_yi2fr")
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 0
-offset_left = 527.0
-offset_top = 406.0
-offset_right = 649.0
-offset_bottom = 476.0
+offset_left = 634.0
+offset_top = 387.0
+offset_right = 1073.0
+offset_bottom = 477.0
 theme_override_colors/font_color = Color(0.9747911, 0.8876811, 0, 1)
-theme_override_font_sizes/font_size = 30
+theme_override_fonts/font = ExtResource("3_b8b2x")
+theme_override_font_sizes/font_size = 100
 theme_override_styles/normal = SubResource("StyleBoxTexture_qj84e")
 text = "Jogar"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_ox3ib")
+autoplay = true
+parameters/looping = false
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 984.0
+offset_top = 164.0
+offset_right = 1070.0
+offset_bottom = 187.0
+theme_override_fonts/font = ExtResource("3_b8b2x")
+theme_override_font_sizes/font_size = 11
+text = "godot edition"
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

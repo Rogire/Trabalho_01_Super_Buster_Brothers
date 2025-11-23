@@ -1,16 +1,11 @@
 [gd_scene load_steps=5 format=3 uid="uid://cj3hsdbvmhjkf"]
 
 [ext_resource type="Script" uid="uid://jkvf7ep7ikuw" path="res://scripts/tela_de_morte.gd" id="1_o3yc7"]
+[ext_resource type="AudioStream" uid="uid://btsv22vgyu5fu" path="res://materiais/audio/28 Game Over (mp3cut.net).mp3" id="2_4ggat"]
+[ext_resource type="FontFile" uid="uid://b4b0qahpaps63" path="res://materiais/fonts/HomeVideo-BLG6G.ttf" id="2_bjrca"]
 
-[sub_resource type="Gradient" id="Gradient_4ggat"]
-offsets = PackedFloat32Array(0, 0.31355932, 1)
-colors = PackedColorArray(0, 0, 0, 1, 0.22033899, 0.22033899, 0.22033899, 1, 1, 1, 1, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_bjrca"]
-gradient = SubResource("Gradient_4ggat")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6a1w2"]
-texture = SubResource("GradientTexture2D_bjrca")
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bjrca"]
+bg_color = Color(0.59607846, 0.34509805, 0.30980393, 1)
 
 [node name="tela de morte" type="Control"]
 layout_mode = 3
@@ -25,31 +20,42 @@ script = ExtResource("1_o3yc7")
 layout_mode = 0
 offset_right = 1150.0
 offset_bottom = 649.0
-theme_override_styles/panel = SubResource("StyleBoxTexture_6a1w2")
+theme_override_styles/panel = SubResource("StyleBoxFlat_bjrca")
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 0
-offset_left = 492.0
-offset_top = 268.0
-offset_right = 644.0
-offset_bottom = 299.0
+offset_left = 318.0
+offset_top = 320.0
+offset_right = 566.0
+offset_bottom = 377.0
+theme_override_fonts/font = ExtResource("2_bjrca")
+theme_override_font_sizes/font_size = 25
 text = "Tentar novamente"
 
 [node name="Button2" type="Button" parent="."]
 layout_mode = 0
-offset_left = 551.0
-offset_top = 378.0
-offset_right = 589.0
-offset_bottom = 409.0
+offset_left = 695.0
+offset_top = 320.0
+offset_right = 824.0
+offset_bottom = 374.0
+theme_override_fonts/font = ExtResource("2_bjrca")
+theme_override_font_sizes/font_size = 25
 text = "Sair"
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
-offset_left = 518.0
-offset_top = 188.0
-offset_right = 608.0
-offset_bottom = 211.0
+offset_left = 258.0
+offset_top = 119.0
+offset_right = 918.0
+offset_bottom = 209.0
+theme_override_fonts/font = ExtResource("2_bjrca")
+theme_override_font_sizes/font_size = 100
 text = "Fim de Jogo"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_4ggat")
+autoplay = true
+parameters/looping = true
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
