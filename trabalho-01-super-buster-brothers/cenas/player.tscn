@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://b635cm5hpttpy"]
+
+[ext_resource type="Script" uid="uid://bfh0f0rveqquo" path="res://scripts/player.gd" id="1_8or6t"]
+[ext_resource type="Texture2D" uid="uid://buvji1p47abmu" path="res://materiais/player.png" id="2_unwft"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_unwft"]
+size = Vector2(34, 52)
+
+[node name="player" type="Area2D"]
+collision_mask = 9
+script = ExtResource("1_8or6t")
+gravidade = 2000.0
+chao = 800.0
+screen_size = 1100.0
+vida = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-0.74999833, -10.250002)
+scale = Vector2(2.453125, 2.203125)
+texture = ExtResource("2_unwft")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2, -16)
+shape = SubResource("RectangleShape2D_unwft")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

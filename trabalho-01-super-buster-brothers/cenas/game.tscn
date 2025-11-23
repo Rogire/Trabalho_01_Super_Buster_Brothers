@@ -1,0 +1,51 @@
+[gd_scene load_steps=8 format=3 uid="uid://cs3yfmyqknsfg"]
+
+[ext_resource type="Script" uid="uid://bvcl0diu7ro4h" path="res://scripts/game.gd" id="1_bo5gj"]
+[ext_resource type="PackedScene" uid="uid://b635cm5hpttpy" path="res://cenas/player.tscn" id="1_emr73"]
+[ext_resource type="PackedScene" uid="uid://c31un3thuyq3v" path="res://cenas/inimigo.tscn" id="2_lenm3"]
+[ext_resource type="PackedScene" uid="uid://chsob2818y2rw" path="res://cenas/ataque_player.tscn" id="3_lenm3"]
+[ext_resource type="Texture2D" uid="uid://da83lr53qhu83" path="res://materiais/SNES - Super Buster Bros. _ Super Pang - Backgrounds - Backgrounds.png" id="4_j42lt"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_a7pla"]
+font_size = 50
+
+[sub_resource type="LabelSettings" id="LabelSettings_j42lt"]
+font_size = 50
+
+[node name="game" type="Node2D"]
+script = ExtResource("1_bo5gj")
+Ataque = ExtResource("3_lenm3")
+Inimigo = ExtResource("2_lenm3")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 1149.0
+offset_bottom = 861.0
+texture = ExtResource("4_j42lt")
+stretch_mode = 5
+
+[node name="player" parent="." instance=ExtResource("1_emr73")]
+position = Vector2(600, 815)
+chao = 815.0
+screen_size = 1110.0
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+zoom = Vector2(1, 0.75)
+limit_left = 0
+limit_top = -9999900
+limit_right = 1150
+limit_bottom = 10000100
+
+[node name="HP" type="Label" parent="."]
+offset_left = 43.0
+offset_top = 44.0
+offset_right = 285.0
+offset_bottom = 122.0
+label_settings = SubResource("LabelSettings_a7pla")
+
+[node name="score" type="Label" parent="."]
+offset_left = 1043.0
+offset_top = 46.0
+offset_right = 1108.0
+offset_bottom = 105.0
+label_settings = SubResource("LabelSettings_j42lt")

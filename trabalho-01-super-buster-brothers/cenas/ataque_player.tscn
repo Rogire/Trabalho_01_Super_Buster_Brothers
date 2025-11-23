@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://chsob2818y2rw"]
+
+[ext_resource type="Script" uid="uid://m58np68h2rm3" path="res://scripts/ataque_player.gd" id="1_pu6vu"]
+[ext_resource type="Texture2D" uid="uid://de2gu8qmuaefk" path="res://materiais/tiro.png" id="2_7ddr1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3q6ib"]
+size = Vector2(20, 236)
+
+[node name="ataque_player" type="Area2D"]
+collision_layer = 128
+collision_mask = 136
+script = ExtResource("1_pu6vu")
+VELOCITY = -1300.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(18.000008, 105.00001)
+scale = Vector2(0.2866211, 0.2866211)
+texture = ExtResource("2_7ddr1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(3, 85)
+shape = SubResource("RectangleShape2D_3q6ib")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

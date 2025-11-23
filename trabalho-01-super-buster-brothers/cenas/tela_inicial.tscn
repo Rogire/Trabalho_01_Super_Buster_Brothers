@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3 uid="uid://cbfn16ni6ir1h"]
+
+[ext_resource type="Script" uid="uid://b82621h68wb7j" path="res://scripts/tela_inicial.gd" id="1_24di4"]
+[ext_resource type="Texture2D" uid="uid://dsgmuh0rfls6" path="res://materiais/capa.jpg" id="2_ox3ib"]
+
+[sub_resource type="Theme" id="Theme_b8b2x"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yi2fr"]
+texture = ExtResource("2_ox3ib")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qj84e"]
+
+[node name="Tela Inicial" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_24di4")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_b8b2x")
+theme_override_styles/panel = SubResource("StyleBoxTexture_yi2fr")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 527.0
+offset_top = 406.0
+offset_right = 649.0
+offset_bottom = 476.0
+theme_override_colors/font_color = Color(0.9747911, 0.8876811, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxTexture_qj84e")
+text = "Jogar"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
